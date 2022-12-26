@@ -1,14 +1,11 @@
-const { error } = require('./constants');
-const commonWordsArr = require('./commonWordsArr');
+var validations = require('./validation');
 
-console.log(commonWordsArr);
-console.log(error);
+var { feature } = require('./features');
 
-const indexOfs = (arr, obj) => {
-    for (let i = 0, j = arr.length; i < j; i++) {
-      if (arr[i] === obj) return true;
-    }
-    return false;
-};
+// console.log(validations.has('sssOK'))
 
-console.log(indexOfs(commonWordsArr, 'ssss'));
+// console.log(validations.indexOfs('12345678'));
+
+// console.log(feature);
+
+console.log(validations.hasNum('edede5555deafafae', null, 5));
