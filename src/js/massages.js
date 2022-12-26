@@ -1,5 +1,9 @@
-module.exports = function (msgType, data = null, fnTrue = false) {
-  return (fnTrue && requirements[msgType](data)) || requirements[msgType];
+module.exports = function (msgType, data, fnTrue = false) {
+    if (data.length > 1) {
+        return requirements[msgType](data[0], data[1], data[2]);
+    } else {
+        return (fnTrue && requirements[msgType](data)) || requirements[msgType];
+    }
 };
 
 const requirements = {
@@ -11,10 +15,10 @@ const requirements = {
   common: "Avoid using common words or phrases",
   personalInformation: "Avoid using personal information",
   password: "Password should be a valid string",
-  minMaxLNumbers: (minLgth, maxLgth, num) =>
+  minMaxLNumbers: (minLgth, maxLgth, num = 0) =>
     `The string should have a minimum Num length of ${minLgth} & maximum Num length of ${maxLgth} and you number length is ${num.length}`,
-  minLNumbers: (lgth, num) =>
+  minLNumbers: (lgth, num = 0) =>
     `The string should have a minimum Num length of ${lgth} and you number length is ${num.length}`,
-  maxLNumbers: (lgth, num) =>
+  maxLNumbers: (lgth, num = 0) =>
     `The string should have a maximum Num length of ${lgth} and you number length is ${num.length}`,
 };

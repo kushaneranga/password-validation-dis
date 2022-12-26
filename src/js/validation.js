@@ -5,13 +5,6 @@
 const commonWordsArr = require("./commonWordsArr");
 
 /**
- * Error massage object
- * @type {object}
- */
-const massages = require("./massages");
-console.log(massages);
-
-/**
  * Regex object
  * @type {object}
  */
@@ -22,6 +15,12 @@ const { regex } = require("./constants");
  * @type {object}
  */
 const { spConst } = require("./constants");
+
+/**
+ * Massage return function
+ * @type {function}
+ */
+const massages = require("./massages");
 
 /**
  * function for matching regex
@@ -63,7 +62,7 @@ module.exports = {
         return module.exports.max(matches, maxLgth);
       }
     } else {
-      return error.numbers;
+      return massages('numbers');
     }
   },
 
@@ -77,7 +76,7 @@ module.exports = {
     if (num.length >= minLgth && num.length <= maxLgth) {
       return true;
     } else {
-      console.log(error.minMaxLNumbers, minLgth);
+      return massages('minMaxLNumbers', [minLgth, maxLgth, num], true)
     }
   },
 
@@ -90,7 +89,7 @@ module.exports = {
     if (num.length >= lgth) {
       return true;
     } else {
-      return error.minLNumbers;
+      return massages('minLNumbers', [lgth, num], true);
     }
   },
 
@@ -103,7 +102,7 @@ module.exports = {
     if (num.length  <= lgth) {
       return true;
     } else {
-      return error.maxLNumbers;
+      return massages('maxLNumbers', [lgth, num], true);
     }
   },
 

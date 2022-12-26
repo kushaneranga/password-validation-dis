@@ -8,4 +8,4 @@ var { feature } = require('./features');
 
 // console.log(feature);
 
-console.log(validations.hasNum('edede5555deafafae', 5, 10));
+console.log(validations.hasNum('edede5555deafafae', null, 5));
