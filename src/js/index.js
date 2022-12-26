@@ -1,5 +1,5 @@
-var commonWordsArr = require('./commonWordsArr');
-var error = require('./constants').error;
+const { error } = require('./constants');
+const commonWordsArr = require('./commonWordsArr');
 
 console.log(commonWordsArr);
 console.log(error);

@@ -1,0 +1,10 @@
+@import "icon/font-icons";
+
+// Variables
+$pwdvh-icon: -20px !default;
+
+.pwdvh-icon {
+    position: absolute;
+    text-align: center;
+    margin-left: $pwdvh-icon;
+}
