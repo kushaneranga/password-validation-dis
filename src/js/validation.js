@@ -35,6 +35,22 @@ function _process(regexArr) {
 
 module.exports = {
   /**
+   * Function for input value length checking
+   * @param {string} inpVal - input value
+   * @param {number} minLength - length count
+   * @returns {string} - error massage
+   * @returns {boolean} - If input value length invalid
+   *                        return true
+   */
+  length: function length(inpVal, minLength) {
+    if (inpVal.length >= minLength) {
+      return true;
+    } else {
+      return massages('length', minLength, true);
+    }
+  },
+
+  /**
    * Method to invert the next validations
    * @param {RegExp} [symbol] - custom Regex which should not be present
    */
@@ -113,10 +129,10 @@ module.exports = {
    * @returns {boolean} - If obj in the array
    *                        return true, false otherwise
    */
-  indexOfs: function indexOfs(obj) {
+  indexOfs: function indexOfs(inpVal) {
     for (let i = 0, j = commonWordsArr.length; i < j; i++) {
-      if (commonWordsArr[i] === obj) return true;
+      if (commonWordsArr[i] === inpVal) return true;
     }
-    return false;
+    return massages('common');
   },
 };

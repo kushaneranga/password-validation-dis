@@ -1,6 +1,9 @@
 module.exports = {
     feature: {
-        length: true,
+        length: {
+            enable: true,
+            lengthLimit: 8,
+        },
         specialCharacter: true,
         letters: true,
         numbers: true,
