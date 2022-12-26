@@ -4,9 +4,10 @@ module.exports = {
             enable: true,
             lengthLimit: 8,
         },
-        specialCharacter: true,
-        letters: true,
         numbers: true,
+        letters: true,
+        specialCharacter: true,
+        avoidSpaces: true,
         numLgth: {
             minLgthEnable: true,
             min: {
@@ -17,8 +18,6 @@ module.exports = {
                 lgth: 10,
             },
         },
-        symbols: true,
         avoidCommon: true,
-        avoidSpaces: true,
     }
 }
