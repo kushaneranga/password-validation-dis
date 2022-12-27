@@ -1,23 +1,25 @@
 module.exports = {
-    feature: {
-        length: {
-            enable: true,
-            lengthLimit: 8,
+  feature: {
+    length: {
+      enable: true,
+      lengthLimit: 8,
+    },
+    letters: true,
+    specialCharacter: true,
+    avoidSpaces: true,
+    numbers: {
+      enable: true,
+      length: {
+        min: {
+          minLgthEnable: true,
+          lgth: 5,
         },
-        numbers: true,
-        letters: true,
-        specialCharacter: true,
-        avoidSpaces: true,
-        numLgth: {
-            minLgthEnable: true,
-            min: {
-                lgth: 5,
-            },
-            maxLgthEnable: true,
-            max: {
-                lgth: 10,
-            },
+        max: {
+          maxLgthEnable: true,
+          lgth: 10,
         },
-        avoidCommon: true,
-    }
-}
+      },
+    },
+    avoidCommon: true,
+  },
+};

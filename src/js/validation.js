@@ -29,8 +29,15 @@ const massages = require("./massages");
  * @returns {boolean} - If input value matches with regex
  *                        return true, false otherwise
  */
-function _process(regexArr) {
-  return regexArr, this.impChar;
+function _process(regexType, inpVal) {
+  if (regexType) {
+    var regexVal = regex[regexType];
+    if (new RegExp(regexVal).test(inpVal)) {
+      return regexType == "spaces" ? massages(regexType) : true;
+    } else {
+      return regexType == "spaces" ? true : massages(regexType);
+    }
+  }
 }
 
 module.exports = {
@@ -46,7 +53,7 @@ module.exports = {
     if (inpVal.length >= minLength) {
       return true;
     } else {
-      return massages('length', minLength, true);
+      return massages("length", minLength, true);
     }
   },
 
@@ -54,8 +61,8 @@ module.exports = {
    * Method to invert the next validations
    * @param {RegExp} [symbol] - custom Regex which should not be present
    */
-  has: function has(impChar) {
-    return _process.call(impChar, regex);
+  has: function has(regexType, inpChar) {
+    return _process.call(regex, regexType, inpChar);
   },
 
   /**
@@ -78,7 +85,7 @@ module.exports = {
         return module.exports.max(matches, maxLgth);
       }
     } else {
-      return massages('numbers');
+      return massages("numbers");
     }
   },
 
@@ -92,7 +99,7 @@ module.exports = {
     if (num.length >= minLgth && num.length <= maxLgth) {
       return true;
     } else {
-      return massages('minMaxLNumbers', [minLgth, maxLgth, num], true)
+      return massages("minMaxLNumbers", [minLgth, maxLgth, num], true);
     }
   },
 
@@ -105,7 +112,7 @@ module.exports = {
     if (num.length >= lgth) {
       return true;
     } else {
-      return massages('minLNumbers', [lgth, num], true);
+      return massages("minLNumbers", [lgth, num], true);
     }
   },
 
@@ -115,10 +122,10 @@ module.exports = {
    * @param {number} lgth - maximum length
    */
   max: function max(num, lgth = null) {
-    if (num.length  <= lgth) {
+    if (num.length <= lgth) {
       return true;
     } else {
-      return massages('maxLNumbers', [lgth, num], true);
+      return massages("maxLNumbers", [lgth, num], true);
     }
   },
 
@@ -131,8 +138,8 @@ module.exports = {
    */
   indexOfs: function indexOfs(inpVal) {
     for (let i = 0, j = commonWordsArr.length; i < j; i++) {
-      if (commonWordsArr[i] === inpVal) return true;
+      if (commonWordsArr[i] === inpVal) return massages("common");
     }
-    return massages('common');
+    return true;
   },
 };
