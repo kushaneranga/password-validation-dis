@@ -1,0 +1,22 @@
+{
+  "name": "password-validation-dis",
+  "version": "1.0.0",
+  "description": "Password validation features",
+  "main": "pwd-val-dis.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kushaneranga/password-validation-dis.git"
+  },
+  "keywords": [
+    "password"
+  ],
+  "author": "KEM",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kushaneranga/password-validation-dis/issues"
+  },
+  "homepage": "https://github.com/kushaneranga/password-validation-dis#readme"
+}
