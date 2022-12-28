@@ -1,4 +1,4 @@
 /**
  * Exposing pwd-val-dis as a component
  */
-exports = require("../src/js/index");
+exports = require("../src/js/pwdValDis");
