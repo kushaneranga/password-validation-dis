@@ -4,8 +4,6 @@
   <h1>Password validation with Password Show Hide (Beta)</h1>
 </div>
 
-[![npm][npm]][npm-url]
-
 # password-validation-dis
 
 ## Getting Started
