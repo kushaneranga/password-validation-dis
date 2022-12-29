@@ -2,8 +2,9 @@
   <img width="200" height="200"
     src="https://github.com/kushaneranga/password-validation-dis/blob/master/assets/pwdValDis.png">
   <h1>Password validation with Password Show Hide (Beta)</h1>
-  [![npm][npm]][npm-url]
 </div>
+
+[![npm][npm]][npm-url]
 
 # password-validation-dis
 
