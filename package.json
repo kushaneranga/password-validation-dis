@@ -1,6 +1,6 @@
 {
   "name": "password-validation-dis",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Password validation features",
   "main": "dist/pwdValDis.js",
   "scripts": {
