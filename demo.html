@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/password validation/build/css/pwdVisibility.min.css">
+    <link rel="stylesheet" href="/build/css/pwdVisibility.min.css">
 </head>
 
 <body>
@@ -23,7 +23,17 @@
     </div>
 </body>
 
-<script src="/password validation/build/js/pwdVisibility.min.js"></script>
+<!-- If using custom icon-->
+<script src="/build/js/pwdCVisibility.min.js"></script>
+<script>
+    /** This is usable for your using custom icon for this */
+    /** Variable & Hide Icon */
+    var pswIconClassName = "pwdvh-icon icon-eye slash";
+    var txtIconClassName = "pwdvh-icon icon-eye";
+    window.pwdVisibility(pswIconClassName, txtIconClassName);
+</script>
+<!-- else -->
+<!-- <script src="/build/js/pwdVisibility.min.js"></script> -->
 
 </html>
 
