@@ -29,13 +29,28 @@ const massages = require("./massages");
  * @returns {boolean} - If input value matches with regex
  *                        return true, false otherwise
  */
+
+var pwdData = {
+  pwdProgress: 0,
+};
+
 function _process(regexType, inpVal) {
   if (regexType) {
     var regexVal = regex[regexType];
     if (new RegExp(regexVal).test(inpVal)) {
-      return regexType == "spaces" ? massages(regexType) : true;
+      if (regexType == "spaces") {
+        return massages(regexType);
+      } else {
+        pwdData.pwdProgress = ++pwdData.pwdProgress;
+        return pwdData;
+      }
     } else {
-      return regexType == "spaces" ? true : massages(regexType);
+      if (regexType == "spaces") {
+        pwdData.pwdProgress = ++pwdData.pwdProgress;
+        return pwdData;
+      } else {
+        return massages(regexType);
+      }
     }
   }
 }
@@ -51,7 +66,8 @@ module.exports = {
    */
   length: function length(inpVal, minLength) {
     if (inpVal.length >= minLength) {
-      return true;
+      pwdData.pwdProgress = ++pwdData.pwdProgress;
+      return pwdData;
     } else {
       return massages("length", minLength, true);
     }
@@ -97,7 +113,8 @@ module.exports = {
    */
   minMax: function minMax(num, minLgth = null, maxLgth = null) {
     if (num.length >= minLgth && num.length <= maxLgth) {
-      return true;
+      pwdData.pwdProgress = ++pwdData.pwdProgress;
+      return pwdData;
     } else {
       return massages("minMaxLNumbers", [minLgth, maxLgth, num], true);
     }
@@ -110,7 +127,8 @@ module.exports = {
    */
   min: function min(num, lgth = null) {
     if (num.length >= lgth) {
-      return true;
+      pwdData.pwdProgress = ++pwdData.pwdProgress;
+      return pwdData;
     } else {
       return massages("minLNumbers", [lgth, num], true);
     }
@@ -123,7 +141,8 @@ module.exports = {
    */
   max: function max(num, lgth = null) {
     if (num.length <= lgth) {
-      return true;
+      pwdData.pwdProgress = ++pwdData.pwdProgress;
+      return pwdData;
     } else {
       return massages("maxLNumbers", [lgth, num], true);
     }
@@ -140,6 +159,7 @@ module.exports = {
     for (let i = 0, j = commonWordsArr.length; i < j; i++) {
       if (commonWordsArr[i] === inpVal) return massages("common");
     }
-    return true;
+    pwdData.pwdProgress = ++pwdData.pwdProgress;
+    return pwdData;
   },
 };
