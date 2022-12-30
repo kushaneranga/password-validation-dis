@@ -2,27 +2,54 @@ var validations = require("./validation");
 
 var { feature } = require("./features");
 
-const input = document.getElementById('vpwd');
+const input = document.getElementById(idName);
 
 input.addEventListener('input', updateValue);
+
+var progressArr = [];
 
 function updateValue(ivpwd) {
   var pwdInpVal = ivpwd.target.value;
   if (pwdInpVal) {
     if (feature.length.enable === true) {
-      console.log(validations.length(pwdInpVal, feature.length.lengthLimit));
+      var funRV = validations.length(pwdInpVal, feature.length.lengthLimit);
+      if (funRV.pwdProgress) {
+        progressArr.push(funRV.pwdProgress);
+      } else {
+        console.log(funRV);
+      }
     }
     if (feature.letters === true) {
-      console.log(validations.has("letters", pwdInpVal));
+      var funRV = validations.has("letters", pwdInpVal);
+      if (funRV.pwdProgress) {
+        progressArr.push(funRV.pwdProgress);
+      } else {
+        console.log(funRV);
+      }
     }
     if (feature.specialCharacter === true) {
-      console.log(validations.has("specialCharacter", pwdInpVal));
+      var funRV = validations.has("specialCharacter", pwdInpVal);
+      if (funRV.pwdProgress) {
+        progressArr.push(funRV.pwdProgress);
+      } else {
+        console.log(funRV);
+      }
     }
     if (feature.avoidSpaces === true) {
-      console.log(validations.has("spaces", pwdInpVal));
+      var funRV = validations.has("spaces", pwdInpVal);
+      if (funRV.pwdProgress) {
+        progressArr.push(funRV.pwdProgress);
+      } else {
+        console.log(funRV);
+      }
     }
     if (feature.avoidCommon === true) {
-      console.log(validations.indexOfs(pwdInpVal));
+      var funRV = validations.indexOfs(pwdInpVal);
+      if (funRV.pwdProgress) {
+        progressArr.push(funRV.pwdProgress);
+      } else {
+        console.log(funRV);
+      }
     }
     if (feature.numbers.enable === true) {
       if (
@@ -37,11 +64,20 @@ function updateValue(ivpwd) {
           feature.numbers.length.max.maxLgthEnable === true
             ? feature.numbers.length.min.lgth
             : null;
-        console.log(
-          validations.hasNum(pwdInpVal, minLgth, feature.numbers.length.max.lgth)
-        );
+        var funRV =
+          validations.hasNum(pwdInpVal, minLgth, feature.numbers.length.max.lgth);
+        if (funRV.pwdProgress) {
+          progressArr.push(funRV.pwdProgress);
+        } else {
+          console.log(funRV);
+        }
       } else {
-        console.log(validations.has("numbers", pwdInpVal));
+        var funRV = validations.has("numbers", pwdInpVal);
+        if (funRV.pwdProgress) {
+          progressArr.push(funRV.pwdProgress);
+        } else {
+          console.log(funRV);
+        }
       }
     }
   } else {
